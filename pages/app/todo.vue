@@ -19,6 +19,8 @@
 </template>
 
 <script>
+const todoStorage = "TODO_STORAGE";
+
 export default {
   data() {
     return {
@@ -32,9 +34,15 @@ export default {
     };
   },
 
+  mounted() {
+    if (localStorage.getItem(todoStorage))
+      this.todos = JSON.parse(localStorage.getItem(todoStorage));
+  },
+
   methods: {
     deleteTodo(todoId) {
       this.todos = this.todos.filter((todo) => todo.id !== todoId);
+      localStorage.setItem(todoStorage, JSON.stringify(this.todos));
     },
 
     addTodo(todoId) {
@@ -45,7 +53,10 @@ export default {
           id: Math.random(),
           text: this.todo,
         });
+
         this.todo = "";
+
+        localStorage.setItem(todoStorage, JSON.stringify(this.todos));
       }
     },
   },
