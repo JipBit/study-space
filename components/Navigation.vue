@@ -18,17 +18,43 @@
       </nav>
 
       <div class="flex space-x-3 mt-3 md:m-0">
-        <NuxtLink class="bg-[#2B2D31] hover:bg-[#3C3E44] p-2 rounded-md" to="/app/music"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M6 18.573c2.206 0 4-1.794 4-4V4.428L19 7.7v7.43a3.953 3.953 0 0 0-2-.557c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4V7a.998.998 0 0 0-.658-.939l-11-4A.999.999 0 0 0 8 3v8.13a3.953 3.953 0 0 0-2-.557c-2.206 0-4 1.794-4 4s1.794 4 4 4z"></path></svg></NuxtLink>
+        <div @click="toggleMusic" v-bind:class="{ 'bg-[#3C3E44]' : isToggled }" class="bg-[#2B2D31] hover:bg-[#3C3E44] p-2 rounded-md"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M6 18.573c2.206 0 4-1.794 4-4V4.428L19 7.7v7.43a3.953 3.953 0 0 0-2-.557c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4V7a.998.998 0 0 0-.658-.939l-11-4A.999.999 0 0 0 8 3v8.13a3.953 3.953 0 0 0-2-.557c-2.206 0-4 1.794-4 4s1.794 4 4 4z"></path></svg></div>
         <NuxtLink class="bg-[#2B2D31] hover:bg-[#3C3E44] p-2 rounded-md" to="/app/todo"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M19 4h-3V2h-2v2h-4V2H8v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm-7 10H7v-2h5v2zm5-4H7V8h10v2z"></path></svg></NuxtLink>
         <NuxtLink class="bg-[#2B2D31] hover:bg-[#3C3E44] p-2 rounded-md" to="/app/pomodoro"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M12.25 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zM18 13h-6.75V6h2v5H18v2z"></path></svg></NuxtLink>
       </div>
 
-      <div class="relative hidden" style="padding-top: 56.25%"><iframe class="rounded-md absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="relative hidden" style="padding-top: 56.25%"><iframe id="youtube-video" class="rounded-md absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; enablejsapi" allowfullscreen></iframe></div>
     </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isToggled: false,
+    };
+  },
+
+  methods: {
+    toggleMusic() {
+      var player = document.getElementById("youtube-video");
+
+      if (this.isToggled === false) {
+        player.contentWindow.postMessage(
+          '{"event":"command","func":"pauseVideo","args":""}',
+          "*"
+        );
+      } else {
+        player.contentWindow.postMessage(
+          '{"event":"command","func":"playVideo","args":""}',
+          "*"
+        );
+      }
+
+      this.isToggled = !this.isToggled;
+    },
+  },
+};
 </script>
 
 <style>
