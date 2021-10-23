@@ -25,12 +25,7 @@ export default {
   data() {
     return {
       todo: "",
-      todos: [
-        {
-          id: Math.random(),
-          text: "This is an example todo. To add a todo, type something above and hit enter!",
-        },
-      ],
+      todos: [],
     };
   },
 

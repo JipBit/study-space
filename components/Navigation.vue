@@ -18,7 +18,7 @@
       </nav>
 
       <div class="flex space-x-3 mt-3 md:m-0">
-        <div @click="toggleMusic" v-html="icon" class="bg-[#2B2D31] hover:bg-[#3C3E44] p-2 rounded-md"></div>
+        <div @click="toggleMusic" v-html="icon" class="bg-[#2B2D31] hover:bg-[#3C3E44] p-2 rounded-md cursor-pointer"></div>
         <NuxtLink class="bg-[#2B2D31] hover:bg-[#3C3E44] p-2 rounded-md" to="/app/todo"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M19 4h-3V2h-2v2h-4V2H8v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm-7 10H7v-2h5v2zm5-4H7V8h10v2z"></path></svg></NuxtLink>
         <NuxtLink class="bg-[#2B2D31] hover:bg-[#3C3E44] p-2 rounded-md" to="/app/pomodoro"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M12.25 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zM18 13h-6.75V6h2v5H18v2z"></path></svg></NuxtLink>
       </div>
