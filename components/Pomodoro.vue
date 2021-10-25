@@ -19,13 +19,16 @@
 </template>
 
 <script>
+const alarmSound = require("@/assets/ring_a_ding.mp3").default;
+
 export default {
   data() {
     return {
       timer: null,
-      totalTime: 25 * 1,
+      totalTime: 25 * 60,
       resetButton: false,
       clicked: false,
+      alarmSound,
     };
   },
 
@@ -60,8 +63,8 @@ export default {
         this.totalTime--;
       } else {
         this.totalTime = 0;
-        // var audio = new Audio("~/static/ring_a_ding.mp3");
-        // audio.play();
+        var audio = new Audio(this.alarmSound);
+        audio.play();
         this.resetTimer();
         this.clicked = false;
       }
