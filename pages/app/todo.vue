@@ -1,7 +1,7 @@
 <template>
   <div class="bg-[#1B1C1F] text-white mt-12 p-4 rounded-t-md">
       <div class="flex items-center mb-12">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" @click="addTodo" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path></svg>
     
           <input v-model="todo" @keydown.enter="addTodo" class="bg-transparent border-0 text-white ml-2 outline-none w-full" type="text" placeholder="Enter todo here...">
       </div>
