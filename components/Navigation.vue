@@ -23,7 +23,7 @@
         <NuxtLink class="bg-[#2B2D31] hover:bg-[#3C3E44] p-2 rounded-md" to="/app/pomodoro"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M12.25 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zM18 13h-6.75V6h2v5H18v2z"></path></svg></NuxtLink>
       </div>
 
-      <div class="relative hidden" style="padding-top: 56.25%"><iframe id="youtube-video" class="rounded-md absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1&muted=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe></div>
+      <div class="relative hidden" style="padding-top: 56.25%"><iframe id="youtube-video" class="rounded-md absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1&muted=1&playsinline=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe></div>
     </div>
 </template>
 
